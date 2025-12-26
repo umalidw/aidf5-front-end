@@ -5,7 +5,7 @@ import {
   useUpdateBookingStatusMutation,
   useUpdateCancelBookingMutation,
 } from "@/lib/api";
-import { extractErrorMessage, handleApiError } from "@/lib/errorUtils";
+import { extractErrorMessage } from "@/lib/errorUtils";
 import { Spinner } from "../ui/spinner";
 import { Button } from "@/components/ui/button";
 import { Input } from "../ui/input";
@@ -94,7 +94,9 @@ const Booking = ({ isCancelBooking, bookId, onCancel }) => {
       }
 
       onCancel();
-    } catch (error) {}
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   return (
